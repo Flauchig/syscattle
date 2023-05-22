@@ -49,6 +49,7 @@ require_once 'config.php';
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
+              
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
@@ -147,7 +148,7 @@ require_once 'config.php';
 
         
         <li class="nav-item">
-          <a class="nav-link collapsed" href="login.php">
+          <a class="nav-link collapsed" href="delete-session.php">
           <i class="bi bi-box-arrow-in-left"></i>
             <span>Sair</span>
           </a>

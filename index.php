@@ -1,9 +1,19 @@
 <?php 
 include_once('header.php');
 include_once('links.php');
-include_once('config.php')
+include_once('config.php');
 
+
+if (!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])) {
+    unset($_SESSION['usuario']);
+    unset($_SESSION['senha']);
+    echo "<script>alert('É necessário estar logado para acessar o sistema'); window.location.href = 'login.php';</script>";
+    exit;
+} else {
+    $logado = $_SESSION['usuario'];
+}
 ?>
+
 
 
  

@@ -30,8 +30,35 @@ try {
     public static  $cargos = [
         '0' => 'Suporte',
         '1' => 'Administrador'
-    
+     
     ];
+
+
+    public static function validate($usuario, $senha) {
+        // Realize a validação do login aqui
+        // Você pode adicionar suas regras de validação personalizadas
+
+        // Exemplo básico de validação: Verificar se o nome de usuário e a senha são iguais
+        if ($usuario === $senha) {
+            return true; // Login válido
+        } else {
+            return false; // Login inválido
+        }
+    }
+
+
+    public static function logado()
+    {
+        return isset($_SESSION['login']) ? true : false;
+        // É uma forma curta de escrever um if-else em uma única linha.
+
+    }
+
+
+
+
+
+
 
 
 
