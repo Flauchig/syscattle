@@ -22,15 +22,24 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
     $resultado = $sql_query->fetch(PDO::FETCH_ASSOC);
 
     if ($sql_query->rowCount() > 0) {
-      echo "<script>alert('Logado com sucesso'); window.location.href = 'index.php';</script>";
+      // echo "<script>alert('Logado com sucesso'); window.location.href = 'index.php';</script>";
+          echo "<script> window.location.href = 'index.php';</script>";
+
       $_SESSION['usuario'] = $usuario;
       $_SESSION['senha'] = $senha;
+      $_SESSION['cargo'] = $cargo;
    
       exit();
     } else {
-      echo "<script>alert('É necessário estar logado para acessar o sistema'); window.location.href = 'login.php';</script>";
+       echo "<script> window.location.href = 'login.php';</script>";
+
+          // echo "<script>alert('É necessário estar logado para acessar o sistema'); window.location.href = 'login.php';</script>";
+
+
+      
       unset($_SESSION['usuario']);
       unset($_SESSION['senha']);
+      unset($_SESSION['cargo']); 
     
       exit();
     }
