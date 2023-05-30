@@ -10,7 +10,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit-editar'])) {
   $cep = $_POST['cep'];
   $telefone = $_POST['telefone'];
 
-  $sql_update = $conexao->prepare("UPDATE fazenda SET nome_fazenda = :nome_fazenda, endereco = :endereco, cidade = :cidade, estado = :estado, cep = :cep, telefone = :telefone WHERE id_fazenda = :id_fazenda");
+  $sql_update = $conexao->prepare("UPDATE fazenda 
+                                    SET 
+                                    nome_fazenda = :nome_fazenda, 
+                                    endereco = :endereco, 
+                                    cidade = :cidade, 
+                                    estado = :estado, 
+                                    cep = :cep, 
+                                    telefone = :telefone 
+                                  WHERE 
+                                  id_fazenda = :id_fazenda");
   $sql_update->bindParam(':nome_fazenda', $nome_fazenda);
   $sql_update->bindParam(':endereco', $endereco);
   $sql_update->bindParam(':cidade', $cidade);

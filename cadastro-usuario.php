@@ -28,6 +28,7 @@ include('header.php');
         </div>
         <div class="card-body">
         <form method="post">
+
     <div class="row mb-4 d-flex justify-content-between">
         <input type="hidden" id="id_usuario" name="id_usuario">
         <div class="col-sm-4">
@@ -50,7 +51,7 @@ include('header.php');
         <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </form>
-            <<table id="tabela-usuarios" class="table table-responsive-lg table-striped p-2">
+            <table id="tabela-usuarios" class="table table-responsive-lg table-striped p-2">
     <thead>
         <tr>
             <th>Login</th>
@@ -110,7 +111,7 @@ include('header.php');
 
 <script>
     $(document).ready(function() {
-        $('#tabela-movimentacao').DataTable({
+        $('#tabela-usuarios').DataTable({
             "language": {
                 url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'
 

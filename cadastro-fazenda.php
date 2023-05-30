@@ -23,7 +23,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     // O estado foi selecionado, continua com o processamento do formulário
 
     // Verifica se o registro já existe no banco de dados
-    $sql_query = $conexao->prepare("SELECT * FROM fazenda WHERE nome_fazenda = :nome_fazenda AND endereco = :endereco AND cidade = :cidade AND estado = :estado AND cep = :cep AND telefone = :telefone");
+    $sql_query = $conexao->prepare("SELECT * FROM 
+                                      fazenda 
+                                    WHERE 
+                                    nome_fazenda = :nome_fazenda 
+                                    AND 
+                                    endereco = :endereco 
+                                    AND 
+                                    cidade = :cidade 
+                                    AND 
+                                    estado = :estado 
+                                    AND 
+                                    cep = :cep 
+                                    AND telefone = :telefone");
     $sql_query->bindValue(':nome_fazenda', $nome_fazenda);
     $sql_query->bindValue(':endereco', $endereco);
     $sql_query->bindValue(':cidade', $cidade);
@@ -178,6 +190,7 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                 </td>
               </tr>
 
+              
 
               <!-- Modal de Edição -->
               <div class="modal fade" id="modalEditar<?php echo $fazenda['id_fazenda']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel" aria-hidden="true">
@@ -251,8 +264,8 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 
                         </div>
-                        <!-- Outros campos do formulário -->
-                        <!-- ... -->
+                                      <br />  
+                      
                         <button type="submit" name="submit-editar" class="btn btn-primary mt-3">Salvar</button>
 
 
