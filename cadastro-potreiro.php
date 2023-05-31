@@ -1,6 +1,6 @@
 <?php
 include('links.php');
-include('header.php');
+include('header.php'); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $nome = $_POST['nome'];
@@ -93,11 +93,11 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                     </div>
 
                     <div class="container">
-                        <button type="submit" name="submit" class="btn btn-primary m-2">Adicionar</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
                     </div>
                 </form>
 
-                <table id="tabela-potreiro" class="table table-responsive-lg table-striped p-2">
+                <table id="tabela-potreiro" class="table table-responsive-lg table-striped w-100">
                     <thead>
                         <tr>
                             <th class="d-none">ID</th>
@@ -120,10 +120,10 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                 <td><?php echo $potreiro['nome_fazenda']; ?></td>
                                 <td>
                                     
-                                        <button type="button" class="btn btn-warning " data-toggle="modal" data-target="#modalEditar<?php echo $potreiro['id_potreiro']; ?>">Editar</button>
+                                        <button type="button" class="btn btn-warning mr-2 " data-toggle="modal" data-target="#modalEditar<?php echo $potreiro['id_potreiro']; ?>">Editar</button>
                                  
                               
-                                    <a href="#" class="btn btn-danger">Excluir</a>
+                                        <a href="excluir-potreiro.php?id=<?php echo $potreiro['id_potreiro']; ?>" class="btn btn-danger mr-2" onclick="return confirm('Tem certeza que deseja excluir este potreiro ?')">Excluir</a>
                                 </td>
                             </tr>
 
@@ -164,7 +164,8 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
-                                                <button type="submit" class="btn btn-primary">Salvar</button>
+                                                <button type="submit" name="submit-potreiro" class="btn btn-primary">Salvar</button>
+
                                             </form>
                                         </div>
                                     </div>
@@ -193,6 +194,33 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"></script>
+<script>
+    $(document).ready(function() {
+        $('#tabela-potreiro').DataTable({
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"
+            }
+        });
+    });
+</script>
+
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+
 
 <!-- Inclua o jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -231,6 +259,7 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
     $('#telefone').inputmask('(99) 9999-9999');
   });
 </script>
+
 
 
 

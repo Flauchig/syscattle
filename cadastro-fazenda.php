@@ -78,6 +78,7 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 </head>
 
 
+
 <body>
   <main class="main" id="main">
     <div class="card">
@@ -154,13 +155,14 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
           </div>
 
 
-          <div class="container">
-            <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
-          </div>
-        </form>
+          <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
+        </div>
+      </form>
+      
+      <div class="container">
 
 
-        <table id="tabela-fazenda" class="table table-responsive-lg table-striped p-2">
+        <table id="tabela-potreiro" class="table table-responsive-lg table-striped p-2 w-100">
           <thead>
             <tr>
               <th class="d-none">ID</th>
@@ -264,7 +266,7 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 
                         </div>
-                                      <br />  
+                                     
                       
                         <button type="submit" name="submit-editar" class="btn btn-primary mt-3">Salvar</button>
 
@@ -317,18 +319,61 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 
 
+
+<footer class="footer">
+  <?php
+  include('footer.php')
+
+  ?>
+
+</footer>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"></script>
+<script>
+    $(document).ready(function() {
+        $('#tabela-potreiro').DataTable({
+            "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"
+            }
+        });
+    });
+</script>
+
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+
+
+
 <!-- Inclua o jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script src="/assets/js/jquery.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+
 
 
 <!-- Inclua o jQuery Inputmask após o jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+
 
 <script>
   $(document).ready(function() {
@@ -355,45 +400,6 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
   });
 </script>
 
-
-
-
-
-
-
-<script>
-  $(document).ready(function() {
-    $('#tabela-fazenda').DataTable({
-      "language": {
-        url: 'https://cdn.datatables.net/plug-ins/1.12.1/i18n/pt-BR.json'
-
-      }
-    });
-  });
-</script>
-
-
-
-
-
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
-<script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-<!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
-
-<footer class="footer">
-  <?php
-  include('footer.php')
-
-  ?>
-
-</footer>
 
 
 
