@@ -338,7 +338,7 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 <script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"></script>
 <script>
     $(document).ready(function() {
-        $('#tabela-potreiro').DataTable({
+        $('#tabela-fazenda').DataTable({
             "language": {
                 "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"
             }

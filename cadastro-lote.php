@@ -46,28 +46,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 }
 
 $sql_query = $conexao->prepare('SELECT 
-                                    l.id_lote_animal, 
-                                    l.lote, 
-                                    l.data_entrada, 
-                                    l.observacao, 
-                                    l.fk_fazenda, 
-                                    l.fk_potreiro,
-                                    p.nome, 
-                                    f.nome_fazenda
-                                FROM 
-                                    lote_animal AS l 
-                                LEFT JOIN 
-                                    fazenda AS f 
-                                ON 
-                                    f.id_fazenda = l.fk_fazenda
-                                LEFT JOIN 
-                                    potreiro AS p
-                                ON
-                                P.id_potreiro = l.fk_potreiro');
+                                l.id_lote_animal, 
+                                l.lote, 
+                                DATE_FORMAT(l.data_entrada, "%d/%m/%Y") as data_entrada,
+                                data_entrada as data_entrada,
+                                l.observacao, 
+                                l.fk_fazenda, 
+                                l.fk_potreiro,
+                                p.nome, 
+                                f.nome_fazenda
+                            FROM 
+                                lote_animal AS l 
+                            LEFT JOIN 
+                                fazenda AS f 
+                            ON 
+                                f.id_fazenda = l.fk_fazenda
+                            LEFT JOIN 
+                                potreiro AS p
+                            ON
+                                p.id_potreiro = l.fk_potreiro');
 $sql_query->execute();
 $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 
 
 
@@ -199,7 +198,7 @@ $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="data_entrada">Data_entrada</label>
-                                                    <input type="date" class="form-control" id="data_entrada" name="data_entrada" value="<?php echo $lote['data_entrada']; ?>">
+                                                    <input type="date"class="form-control" id="data_entrada" name="data_entrada" value="<?php echo $lote['data_entrada']; ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="observacao">Observação</label>
