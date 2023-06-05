@@ -179,6 +179,8 @@ $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                 </td>
                             </tr>
 
+                            <!-- inicio do modal  -->
+
 
                             <div class="modal fade" id="modalEditar<?php echo $lote['id_lote_animal']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -208,7 +210,7 @@ $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                                 <div class="form-group">
                                                     <label for="fk_potreiro">Nome do Potreiro</label>
                                                     <select name="fk_potreiro" id="fk_potreiro" class="form-control border-dark" required>
-                                                        <option value="">Selecione uma fazenda</option>
+                                                        <option value="">Selecione uma Potreiro</option>
                                                         <?php foreach ($potreiros as $potreiro) : ?>
                                                             <option value="<?php echo $potreiro['id_potreiro']; ?>" <?php if ($potreiro['id_potreiro'] == $lote['fk_potreiro']) echo 'selected'; ?>><?php echo $potreiro['nome']; ?></option>
                                                         <?php endforeach; ?>
@@ -230,7 +232,8 @@ $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> <!-- fim  do modal  -->
+
 
                         <?php endforeach; ?>
                     </tbody>

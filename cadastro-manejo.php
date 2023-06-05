@@ -121,7 +121,7 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                     </div>
                     <div class="container">
-                        <button type="submit"  name="submit" class="btn btn-primary">Adicionar</button>
+                        <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
                     </div>
                 </form>
                 <table id="tabela-manejo" class="table table-responsive-lg table-striped p-2 w-100">
@@ -147,10 +147,74 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 
                                 <td>
-                                    <a href="#" class="btn btn-warning">Editar</a>
-                                    <a href="#" class="btn btn-danger">Excluir</a>
+                                    <button type="button" class="btn btn-warning mr-2 " data-toggle="modal" data-target="#modalEditar<?php echo $manejo['id_manejo']; ?>">Editar</button>
+
+                                    <a href="excluir-manejo.php?id=<?php echo $manejo['id_manejo']; ?>" class="btn btn-danger mr-2" onclick="return confirm('Tem certeza que deseja excluir este manejo ?')">Excluir</a>
                                 </td>
                             </tr>
+
+                            
+                            
+                            
+                            <!-- inicio do modal  -->
+                            <div class="modal fade" id="modalEditar<?php echo $manejo['id_manejo']; ?>" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalEditarLabel">Editar manejo</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="editar-manejo.php" method="post">
+                                                <input type="hidden" name="id_manejo" value="<?php echo $manejo['id_manejo']; ?>">
+
+                                                <div class="form-group">
+                                                    <label for="data_manutencao">Data Manutenção</label>
+                                                    <input type="date" class="form-control" id="data_manutencao" name="data_manutencao" value="<?php echo $manejo['data_manutencao']; ?>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="tipo_manutencao">Tipo Manutenção</label>
+                                                    <input type="text" class="form-control" id="tipo_manutencao" name="tipo_manutencao" value="<?php echo $manejo['tipo_manutencao']; ?>">
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                     <label for="observacao">Observação</label>
+                                                    <input type="text" class="form-control" id="observacao" name="observacao" value="<?php echo $manejo['observacao']; ?>">
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="fk_animal">Brinco Animal</label>
+                                                    <select name="fk_animal" id="fk_animal" class="form-control border-dark" required>
+                                                        <option value="">Selecione um Brinco</option>
+                                                        <?php foreach ($animais as $animal) : ?>
+                                                            <option value="<?php echo $animal['id_animal']; ?>" <?php if ($animal['id_animal'] == $manejo['fk_animal']) echo 'selected'; ?>><?php echo $animal['brinco']; ?></option>
+                                                        <?php endforeach; ?>
+                                                    </select>
+                                                </div>
+
+                                                <br />
+
+
+
+                                                <button type="submit" name="submit-manejo" class="btn btn-primary">Salvar</button>
+
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- fim  do modal  -->
+
+
+
+
+
+
+
+
+
                         <?php endforeach; ?>
                     </tbody>
                 </table>
