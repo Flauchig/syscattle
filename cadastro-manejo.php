@@ -45,8 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
 $sql_query = $conexao->prepare('SELECT 
     m.id_manejo,
-    DATE_FORMAT(m.data_manutencao, "%d/%m/%Y") as data_manutencao,
-    data_manutencao AS data_manutencao,
+    DATE_FORMAT(m.data_manutencao, "%d/%m/%Y") as data_manutencao, 
+    m.data_manutencao AS data_manut,
     m.tipo_manutencao, 
     m.observacao,
     m.fk_animal,
@@ -172,7 +172,7 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
                                                 <div class="form-group">
                                                     <label for="data_manutencao">Data Manutenção</label>
-                                                    <input type="date" class="form-control" id="data_manutencao" name="data_manutencao" value="<?php echo $manejo['data_manutencao']; ?>">
+                                                    <input type="date" class="form-control" id="data_manutencao" name="data_manutencao" value="<?php echo $manejo['data_manut']; ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tipo_manutencao">Tipo Manutenção</label>
@@ -239,13 +239,9 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 </footer>
 
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
-
 <script>
     $(document).ready(function() {
         $('#tabela-manejo').DataTable({
@@ -253,11 +249,6 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                 "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"
             }
         });
-
-        $('#editar-cep').inputmask("99999-999");
-        $('#editar-telefone').inputmask('(99) 9999-9999');
-        $('#cep').inputmask("99999-999");
-        $('#telefone').inputmask('(99) 9999-9999');
     });
 </script>
 
@@ -272,6 +263,48 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
+
+
+
+<!-- Inclua o jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+
+<!-- Inclua o jQuery Inputmask após o jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#editar-cep').inputmask("99999-999");
+        $('#editar-telefone').inputmask("(99) 9999-9999");
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#editar-cep').inputmask("99999-999");
+        $('#editar-telefone').inputmask('(99) 9999-9999');
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#cep').inputmask("99999-999");
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#telefone').inputmask('(99) 9999-9999');
+    });
+</script>
+
+
 
 
 </html>

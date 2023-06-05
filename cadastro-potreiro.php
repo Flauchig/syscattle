@@ -195,12 +195,9 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 </footer>
 
-<<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
-
 <script>
     $(document).ready(function() {
         $('#tabela-potreiro').DataTable({
@@ -208,11 +205,6 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                 "url": "https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"
             }
         });
-
-        $('#editar-cep').inputmask("99999-999");
-        $('#editar-telefone').inputmask('(99) 9999-9999');
-        $('#cep').inputmask("99999-999");
-        $('#telefone').inputmask('(99) 9999-9999');
     });
 </script>
 
@@ -230,6 +222,42 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 
 
+<!-- Inclua o jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
 
-</html>
+<!-- Inclua o jQuery Inputmask após o jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#editar-cep').inputmask("99999-999");
+        $('#editar-telefone').inputmask("(99) 9999-9999");
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('#editar-cep').inputmask("99999-999");
+        $('#editar-telefone').inputmask('(99) 9999-9999');
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#cep').inputmask("99999-999");
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#telefone').inputmask('(99) 9999-9999');
+    });
+</script>
+
+

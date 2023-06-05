@@ -162,7 +162,7 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
       <div class="container">
 
 
-        <table id="tabela-potreiro" class="table table-responsive-lg table-striped p-2 w-100">
+        <table id="tabela-fazenda" class="table table-responsive-lg table-striped p-2 w-100">
           <thead>
             <tr>
               <th class="d-none">ID</th>
@@ -330,9 +330,6 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-
-
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/plug-ins/1.11.3/i18n/Portuguese-Brasil.json"></script>
@@ -361,43 +358,41 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
 
 
 <!-- Inclua o jQuery -->
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script src="/assets/js/jquery.min.js"></script>
-
-
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
 
 
 <!-- Inclua o jQuery Inputmask após o jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
 
-
-
 <script>
-  $(document).ready(function() {
-    $('#editar-cep').inputmask("99999-999");
-    $('#editar-telefone').inputmask("(99) 9999-9999");
-  });
+    $(document).ready(function() {
+        $('#editar-cep').inputmask("99999-999");
+        $('#editar-telefone').inputmask("(99) 9999-9999");
+    });
 </script>
 <script>
-  $(document).ready(function() {
-    $('#editar-cep').inputmask("99999-999");
-    $('#editar-telefone').inputmask('(99) 9999-9999');
-  });
+    $(document).ready(function() {
+        $('#editar-cep').inputmask("99999-999");
+        $('#editar-telefone').inputmask('(99) 9999-9999');
+    });
 </script>
 
 <script>
-  $(document).ready(function() {
-    $('#cep').inputmask("99999-999");
-  });
+    $(document).ready(function() {
+        $('#cep').inputmask("99999-999");
+    });
 </script>
 
 <script>
-  $(document).ready(function() {
-    $('#telefone').inputmask('(99) 9999-9999');
-  });
+    $(document).ready(function() {
+        $('#telefone').inputmask('(99) 9999-9999');
+    });
 </script>
 
 

@@ -49,7 +49,7 @@ $sql_query = $conexao->prepare('SELECT
                                 l.id_lote_animal, 
                                 l.lote, 
                                 DATE_FORMAT(l.data_entrada, "%d/%m/%Y") as data_entrada,
-                                data_entrada as data_entrada,
+                                data_entrada as data_ent,
                                 l.observacao, 
                                 l.fk_fazenda, 
                                 l.fk_potreiro,
@@ -200,7 +200,7 @@ $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="data_entrada">Data_entrada</label>
-                                                    <input type="date"class="form-control" id="data_entrada" name="data_entrada" value="<?php echo $lote['data_entrada']; ?>">
+                                                    <input type="date"class="form-control" id="data_entrada" name="data_entrada" value="<?php echo $lote['data_ent']; ?>">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="observacao">Observação</label>
