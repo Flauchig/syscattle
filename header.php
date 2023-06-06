@@ -1,5 +1,15 @@
-<?php  
-require_once 'config.php'; 
+<?php
+require_once 'config.php';
+$cargo_login = $_SESSION['cargo'];
+
+
+
+$cargos_nome = [
+  '0' => 'Suporte',
+  '1' => 'Administrador'
+
+];
+
 
 
 ?>
@@ -43,16 +53,18 @@ require_once 'config.php';
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-          
-            <span class="d-none d-md-block dropdown-toggle ps-2">Rafael Vasconcellos </span>
+
+            <span class="d-none d-md-block dropdown-toggle ps-2"> <?php echo $_SESSION['usuario']; ?> </span>
+
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              
+              <span><?php echo $cargos_nome[$cargo_login]; ?></span>
+
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="delete-session.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
               </a>
@@ -71,8 +83,8 @@ require_once 'config.php';
 
   </header><!-- End Header -->
 
-   <!-- ======= Sidebar ======= -->
-   <div class="menu card-body ">
+  <!-- ======= Sidebar ======= -->
+  <div class="menu card-body ">
     <aside id="sidebar" class="sidebar">
 
       <ul class="sidebar-nav" id="sidebar-nav">
@@ -139,17 +151,22 @@ require_once 'config.php';
           </a>
         </li><!-- vacinação  -->
 
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="cadastro-usuario.php">
-          <i class="bi bi-file-earmark-person-fill"></i>
-            <span>Cadastrar Usuário</span>
-          </a>
-        </li><!-- cadastro de usuários  -->
+        <?php
+        if ($cargo_login == 0) {
+        ?>
 
-        
+
+          <li class="nav-item">
+            <a class="nav-link collapsed" href="cadastro-usuario.php">
+              <i class="bi bi-file-earmark-person-fill"></i>
+              <span>Cadastrar Usuário</span>
+            </a>
+          </li><!-- cadastro de usuários  -->
+        <?php } ?>
+
         <li class="nav-item">
           <a class="nav-link collapsed" href="delete-session.php">
-          <i class="bi bi-box-arrow-in-left"></i>
+            <i class="bi bi-box-arrow-in-left"></i>
             <span>Sair</span>
           </a>
         </li><!-- sair  -->

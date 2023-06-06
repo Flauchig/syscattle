@@ -96,11 +96,11 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                         <input type="hidden" id="id_manejo" name="id_manejo">
                         <div class="col-sm-3">
                             <label for="data_manutencao" class="form-label-lg">Data de Manutenção</label>
-                            <input type="date" class="form-control border-dark" id="data_manutencao" name="data_manutencao">
+                            <input type="date" class="form-control border-dark" id="data_manutencao" name="data_manutencao" required>
                         </div>
                         <div class="col-sm-3">
                             <label for="tipo_manutencao" class="form-label-lg">Tipo de Manutenção</label>
-                            <input type="text" class="form-control border-dark" id="tipo_manutencao" name="tipo_manutencao">
+                            <input type="text" class="form-control border-dark" id="tipo_manutencao" name="tipo_manutencao" required>
                         </div>
                         <div class="col-sm-3">
                             <label for="observacao" class="form-label-lg">Observação</label>
@@ -168,15 +168,15 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                         </div>
                                         <div class="modal-body">
                                             <form action="editar-manejo.php" method="post">
-                                                <input type="hidden" name="id_manejo" value="<?php echo $manejo['id_manejo']; ?>">
+                                                <input type="hidden" name="id_manejo" value="<?php echo $manejo['id_manejo']; ?>" required>
 
                                                 <div class="form-group">
                                                     <label for="data_manutencao">Data Manutenção</label>
-                                                    <input type="date" class="form-control" id="data_manutencao" name="data_manutencao" value="<?php echo $manejo['data_manut']; ?>">
+                                                    <input type="date" class="form-control" id="data_manutencao" name="data_manutencao" value="<?php echo $manejo['data_manut']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tipo_manutencao">Tipo Manutenção</label>
-                                                    <input type="text" class="form-control" id="tipo_manutencao" name="tipo_manutencao" value="<?php echo $manejo['tipo_manutencao']; ?>">
+                                                    <input type="text" class="form-control" id="tipo_manutencao" name="tipo_manutencao" value="<?php echo $manejo['tipo_manutencao']; ?>" required>
                                                 </div>
 
 

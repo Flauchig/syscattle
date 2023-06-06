@@ -110,21 +110,21 @@ $animais = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                         <input type="hidden" id="id_animal" name="id_animal">
                         <div class="col-sm-4">
                             <label for="inputText" class="form-label-lg">Data de Nascimento</label>
-                            <input type="date" class="form-control border-dark" id="data_nascimento" name="data_nascimento">
+                            <input type="date" class="form-control border-dark" id="data_nascimento" name="data_nascimento" required>
                         </div>
                         <div class="col-sm-4">
                             <label for="inputText" class="form-label-lg">Brinco</label>
-                            <input type="text" class="form-control border-dark" id="brinco" name="brinco">
+                            <input type="text" class="form-control border-dark" id="brinco" name="brinco" required>
                         </div>
                         <div class="col-sm-4">
                             <label for="inputText" class="form-label-lg">Peso</label>
-                            <input type="text" class="form-control border-dark" id="peso" name="peso">
+                            <input type="text" class="form-control border-dark" id="peso" name="peso" required>
                         </div>
                     </div>
                     <div class="row mb-4 d-flex justify-content-between">
                         <div class="col-sm-4">
                             <label for="inputText" class="form-label-lg">Raça</label>
-                            <input type="text" class="form-control border-dark" id="raca" name="raca">
+                            <input type="text" class="form-control border-dark" id="raca" name="raca" required>
                         </div>
                         <div class="col-sm-4">
                             <label for="inputText" class="form-label-lg">Lote</label>
@@ -161,7 +161,7 @@ $animais = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                     <thead>
                         <tr>
                             <th class="d-none">ID</th>
-                            <th>Data de Nascimento</th>
+                            <th>Data de Nascimento</th> 
                             <th>Brinco</th>
                             <th>Peso</th>
                             <th>Raça</th>
@@ -177,7 +177,7 @@ $animais = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                 <td class="d-none"><?php echo $animal['id_animal']; ?></td>
                                 <td><?php echo $animal['data_nascimento']; ?></td>
                                 <td><?php echo $animal['brinco']; ?></td>
-                                <td><?php echo $animal['peso']; ?></td>
+                                <td><?php echo $animal['peso']; ?>KG</td>
                                 <td><?php echo $animal['raca']; ?></td>
                                 <td><?php echo $animal['lote']; ?></td>
                                 <td><?php echo $animal['nome']; ?></td>
@@ -202,19 +202,19 @@ $animais = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                                 <input type="hidden" name="id_animal" value="<?php echo $animal['id_animal']; ?>">
                                                 <div class="form-group">
                                                     <label for="data_nascimento">Data de Nascimento</label>
-                                                    <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="<?php echo $animal['data_nasc']; ?>">
+                                                    <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="<?php echo $animal['data_nasc']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="brinco">Brinco</label>
-                                                    <input type="text" class="form-control" id="brinco" name="brinco" value="<?php echo $animal['brinco']; ?>">
+                                                    <input type="text" class="form-control" id="brinco" name="brinco" value="<?php echo $animal['brinco']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="peso">Peso</label>
-                                                    <input type="text" class="form-control" id="peso" name="peso" value="<?php echo $animal['peso']; ?>">
+                                                    <input type="text" class="form-control" id="peso" name="peso" value="<?php echo $animal['peso']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="raca">Raça</label>
-                                                    <input type="text" class="form-control" id="raca" name="raca" value="<?php echo $animal['raca']; ?>">
+                                                    <input type="text" class="form-control" id="raca" name="raca" value="<?php echo $animal['raca']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="fk_lote">Nome do Lote</label>

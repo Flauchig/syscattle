@@ -4,6 +4,7 @@ require_once 'config.php';
 if (isset($_POST['usuario']) && isset($_POST['senha'])) {
   $usuario = $_POST['usuario'];
   $senha = $_POST['senha'];
+  
 
   try {
     $sql = "SELECT 
@@ -27,7 +28,7 @@ if (isset($_POST['usuario']) && isset($_POST['senha'])) {
 
       $_SESSION['usuario'] = $usuario;
       $_SESSION['senha'] = $senha;
-      $_SESSION['cargo'] = $cargo;
+      $_SESSION['cargo'] = $resultado['cargo'];
    
       exit();
     } else {

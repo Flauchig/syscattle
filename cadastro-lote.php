@@ -104,12 +104,12 @@ $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                         <input type="hidden" id="id_lote_animal" name="id_lote_animal">
                         <div class="col-sm-3">
                             <label for="lote" class="form-label-lg">Lote</label>
-                            <input type="text" class="form-control border-dark" id="lote" name="lote">
+                            <input type="text" class="form-control border-dark" id="lote" name="lote" required>
                         </div>
 
                         <div class="col-sm-3">
                             <label for="data_entrada" class="form-label-lg">Data de Entrada</label>
-                            <input type="date" class="form-control border-dark" id="data_entrada" name="data_entrada">
+                            <input type="date" class="form-control border-dark" id="data_entrada" name="data_entrada" required>
                         </div>
 
                         <div class="col-sm-3">
@@ -196,11 +196,11 @@ $lotes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                                 <input type="hidden" name="id_lote_animal" value="<?php echo $lote['id_lote_animal']; ?>">
                                                 <div class="form-group">
                                                     <label for="lote">Lote</label>
-                                                    <input type="text" class="form-control" id="lote" name="lote" value="<?php echo $lote['lote']; ?>">
+                                                    <input type="text" class="form-control" id="lote" name="lote" value="<?php echo $lote['lote']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="data_entrada">Data_entrada</label>
-                                                    <input type="date"class="form-control" id="data_entrada" name="data_entrada" value="<?php echo $lote['data_ent']; ?>">
+                                                    <input type="date"class="form-control" id="data_entrada" name="data_entrada" value="<?php echo $lote['data_ent']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="observacao">Observação</label>

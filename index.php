@@ -31,10 +31,9 @@ if (!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])) {
 <table id="tabela" class="table table-responsive-lg table-striped p-2">
   <thead>
     <tr>
-      <th>ID</th>
       <th>Data de Nascimento</th>
       <th>Peso </th>
-      <th>Raça</th>
+      <th>Brinco</th>
       <th>Potreiro</th>
       <th>Fazenda</th>
       <th>Lote</th>
@@ -44,32 +43,28 @@ if (!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])) {
   <tbody>
 
     <tr>
-      <td>1</td>
       <td>2008-12-11</td>
       <td>500</td>
-      <td>Aberdeen Angus</td>
+      <td>135</td>
       <td>potreiro1</td>
       <td>fazenda1</td> 
       <td>1</td>
       <td>
         <a href="#" class="btn btn-primary mt-1">Detalhes</a>
-        <a href="#" class="btn btn-warning mt-1">Editar</a>
-        <a href="#" class="btn btn-danger mt-1">Excluir</a>
       </td>
     </tr>
 
     <tr>
-      <td>2</td>
+     
       <td>2011-05-03</td>
       <td>400</td>
-      <td>Hereford</td>
+      <td>140</td>
       <td>potreiro2</td>
       <td>fazenda2</td>
       <td>2</td>
       <td>
         <a href="#" class="btn btn-primary mt-1">Detalhes</a>
-        <a href="#" class="btn btn-warning mt-1">Editar</a>
-        <a href="#" class="btn btn-danger mt-1">Excluir</a>
+       
 
       </td>
     </tr>

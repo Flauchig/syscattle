@@ -210,21 +210,21 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                         <input type="hidden" name="id_fazenda" value="<?php echo $fazenda['id_fazenda']; ?>">
                         <div class="form-group">
                           <label for="nome_fazenda">Nome da Fazenda</label>
-                          <input type="text" class="form-control" id="nome_fazenda" name="nome_fazenda" value="<?php echo $fazenda['nome_fazenda']; ?>">
+                          <input type="text" class="form-control" id="nome_fazenda" name="nome_fazenda" value="<?php echo $fazenda['nome_fazenda']; ?>" required>
                         </div>
                         <div class="form-group">
                           <label for="endereco">Endereço</label>
-                          <input type="text" class="form-control" id="endereco" name="endereco" value="<?php echo $fazenda['endereco']; ?>">
+                          <input type="text" class="form-control" id="endereco" name="endereco" value="<?php echo $fazenda['endereco']; ?>" required>
                         </div>
                         <div class="form-group">
                           <label for="edit-cidade">Cidade</label>
-                          <input type="text" class="form-control" id="cidade" name="cidade" value="<?php echo $fazenda['cidade']; ?>">
+                          <input type="text" class="form-control" id="cidade" name="cidade" value="<?php echo $fazenda['cidade']; ?>" required>
                         </div>
 
                         <div class="form-group">
                           <label for="estado"> Estado </label>
                           <select class="form-control" id="estado" name="estado">
-                            <option value="" disabled>Selecione um estado</option>
+                            <option value="" disabled>Selecione um estado</option> 
                             <option value="AC" <?php echo ($fazenda['estado'] == 'AC') ? 'selected' : ''; ?>>Acre</option>
                             <option value="AL" <?php echo ($fazenda['estado'] == 'AL') ? 'selected' : ''; ?>>Alagoas</option>
                             <option value="AP" <?php echo ($fazenda['estado'] == 'AP') ? 'selected' : ''; ?>>Amapá</option>
@@ -255,12 +255,12 @@ $fazendas = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                           </select>
                           <div class="form-group">
                             <label for="editar-cep">CEP</label>
-                            <input type="text" class="form-control" id="editar-cep" name="cep" value="<?php echo $fazenda['cep']; ?>">
+                            <input type="text" class="form-control" id="editar-cep" name="cep" value="<?php echo $fazenda['cep']; ?>" required>
                           </div>
 
                           <div class="form-group">
                             <label for=" editar-telefone">Telefone</label>
-                            <input type="text" class="form-control" id="editar-telefone" name="telefone" value="<?php echo $fazenda['telefone']; ?>" placeholder="(99) 9999-9999">
+                            <input type="text" class="form-control" id="editar-telefone" name="telefone" value="<?php echo $fazenda['telefone']; ?>" placeholder="(99) 9999-9999" required>
                           </div>
 
 

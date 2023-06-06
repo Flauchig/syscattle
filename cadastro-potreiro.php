@@ -138,22 +138,22 @@ $potreiros = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                                         </div>
                                         <div class="modal-body">
                                             <form action="editar-potreiro.php" method="post">
-                                                <input type="hidden" name="id_potreiro" value="<?php echo $potreiro['id_potreiro']; ?>">
+                                                <input type="hidden" name="id_potreiro" value="<?php echo $potreiro['id_potreiro']; ?>" required>
                                                 <div class="form-group">
                                                     <label for="nome">Nome do Potreiro</label>
-                                                    <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $potreiro['nome']; ?>">
+                                                    <input type="text" class="form-control" id="nome" name="nome" value="<?php echo $potreiro['nome']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tamanho">Tamanho</label>
-                                                    <input type="text" class="form-control" id="tamanho" name="tamanho" value="<?php echo $potreiro['tamanho']; ?>">
+                                                    <input type="text" class="form-control" id="tamanho" name="tamanho" value="<?php echo $potreiro['tamanho']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="capacidade">Capacidade</label>
-                                                    <input type="text" class="form-control" id="capacidade" name="capacidade" value="<?php echo $potreiro['capacidade']; ?>">
+                                                    <input type="text" class="form-control" id="capacidade" name="capacidade" value="<?php echo $potreiro['capacidade']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tipo_pasto">Tipo de Pasto</label>
-                                                    <input type="text" class="form-control" id="tipo_pasto" name="tipo_pasto" value="<?php echo $potreiro['tipo_pasto']; ?>">
+                                                    <input type="text" class="form-control" id="tipo_pasto" name="tipo_pasto" value="<?php echo $potreiro['tipo_pasto']; ?>" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="fk_fazenda">Nome da Fazenda</label>

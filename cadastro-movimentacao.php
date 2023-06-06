@@ -83,11 +83,11 @@ $movimentacoes = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                         <input type="hidden" id="id_movimentacao" name="id_movimentacao">
                         <div class="col-sm-3">
                             <label for="data_movimentacao" class="form-label-lg">Data de Movimentação</label>
-                            <input type="date" class="form-control border-dark" id="data_movimentacao" name="data_movimentacao">
+                            <input type="date" class="form-control border-dark" id="data_movimentacao" name="data_movimentacao" required>
                         </div>
                         <div class="col-sm-3">
                             <label for="tipo_movimentacao" class="form-label-lg">Tipo de Movimentação</label>
-                            <input type="text" class="form-control border-dark" id="tipo_movimentacao" name="tipo_movimentacao">
+                            <input type="text" class="form-control border-dark" id="tipo_movimentacao" name="tipo_movimentacao" required>
                         </div>
                         <div class="col-sm-3">
                             <label for="observacao" class="form-label-lg">Observação</label>
