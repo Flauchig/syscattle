@@ -2,11 +2,10 @@
 require_once('config.php');
 require_once('tcpdf/tcpdf.php');
 
-// Verifica se o parâmetro id_animal foi fornecido na URL
 if (isset($_GET['id_animal'])) {
     $id_animal = $_GET['id_animal'];
 
-    // Consulta os dados do animal com base no ID fornecido
+    // Consulta SQL para obter as informações do animal
     $sql_query = $conexao->prepare("SELECT
         a.id_animal,
         DATE_FORMAT(data_nascimento, '%d/%m/%Y') AS data_nascimento,
@@ -37,16 +36,11 @@ if (isset($_GET['id_animal'])) {
     $animal = $sql_query->fetch(PDO::FETCH_ASSOC);
 
     if ($animal) {
-        // Cria um novo objeto TCPDF
         $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
-
-        // Define o título do documento
         $pdf->SetTitle('Relatório do Animal');
-
-        // Adiciona uma página
         $pdf->AddPage();
 
-        // Define o conteúdo do documento
+        // HTML do relatório
         $html = '
         <style>
             .table {
@@ -60,10 +54,13 @@ if (isset($_GET['id_animal'])) {
                 padding: 0.75rem;
                 vertical-align: top;
                 border-top: 1px solid #dee2e6;
+                border-bottom: 1px solid #fff; /* Add bottom border */
             }
             .table thead th {
                 vertical-align: bottom;
                 border-bottom: 2px solid #dee2e6;
+                background-color: #343a40;
+                color: #fff;
             }
             .table tbody + tbody {
                 border-top: 2px solid #dee2e6;
@@ -82,43 +79,45 @@ if (isset($_GET['id_animal'])) {
         <h2 class="mt-4">Informações do Animal</h2>
         <table class="table table-bordered mt-2">
             <tr>
-                <th>Data de Nascimento</th>
-                <td>' . ((!empty($animal['data_nascimento'])) ? $animal['data_nascimento'] : '-') . '</td>
+                <th style="color: #fff; background-color: #343a40;">Data de Nascimento</th>
+                <td style="color: #fff; background-color: #343a40;">' . ((!empty($animal['data_nascimento'])) ? $animal['data_nascimento'] : '-') . '</td>
             </tr>
             <tr>
-                <th>Peso</th>
-                <td>' . ((!empty($animal['peso'])) ? $animal['peso'] : '-') . '</td>
+                <th style="color: #fff; background-color: #343a40;">Peso</th>
+                <td style="color: #fff; background-color: #343a40;">' . ((!empty($animal['peso'])) ? $animal['peso'] : '-') . '</td>
             </tr>
             <tr>
-                <th>Brinco</th>
-                <td>' . ((!empty($animal['brinco'])) ? $animal['brinco'] : '-') . '</td>
+                <th style="color: #fff; background-color: #343a40;">Brinco</th>
+                <td style="color: #fff; background-color: #343a40;">' . ((!empty($animal['brinco'])) ? $animal['brinco'] : '-') . '</td>
             </tr>
             <tr>
-                <th>Raça</th>
-                <td>' . ((!empty($animal['raca'])) ? $animal['raca'] : '-') . '</td>
+                <th style="color: #fff; background-color: #343a40;">Raça</th>
+                <td style="color: #fff; background-color: #343a40;">' . ((!empty($animal['raca'])) ? $animal['raca'] : '-') . '</td>
             </tr>
             <tr>
-                <th>Potreiro</th>
-                <td>' . ((!empty($animal['potreiro'])) ? $animal['potreiro'] : '-') . '</td>
+                <th style="color: #fff; background-color: #343a40;">Potreiro</th>
+                <td style="color: #fff; background-color: #343a40;">' . ((!empty($animal['potreiro'])) ? $animal['potreiro'] : '-') . '</td>
             </tr>
             <tr>
-                <th>Fazenda</th>
-                <td>' . ((!empty($animal['fazenda'])) ? $animal['fazenda'] : '-') . '</td>
+                <th style="color: #fff; background-color: #343a40;">Fazenda</th>
+                <td style="color: #fff; background-color: #343a40;">' . ((!empty($animal['fazenda'])) ? $animal['fazenda'] : '-') . '</td>
             </tr>
             <tr>
-                <th>Lote</th>
-                <td>' . ((!empty($animal['lote'])) ? $animal['lote'] : '-') . '</td>
+                <th style="color: #fff; background-color: #343a40;">Lote</th>
+                <td style="color: #fff; background-color: #343a40;">' . ((!empty($animal['lote'])) ? $animal['lote'] : '-') . '</td>
             </tr>
         </table>';
-        
-        // Verifica se há dados de vacinação do animal
+
+        // Vacinação
+        $vacinas = array();
+
         if (!empty($animal['data_vacinacao']) && !empty($animal['tipo_vacinacao'])) {
             $html .= '<h2 class="mt-4">Vacinação</h2>
                 <table class="table table-bordered mt-2">
                     <thead>
                         <tr>
-                            <th>Data</th>
-                            <th>Tipo</th>
+                            <th style="color: #fff; background-color: #343a40;">Data</th>
+                            <th style="color: #fff; background-color: #343a40;">Tipo</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -126,30 +125,33 @@ if (isset($_GET['id_animal'])) {
             $datas_vacinacao = explode(', ', $animal['data_vacinacao']);
             $tipos_vacinacao = explode(', ', $animal['tipo_vacinacao']);
 
-            // Itera sobre as datas e tipos de vacinação e cria as linhas da tabela
             foreach ($datas_vacinacao as $index => $data) {
                 $tipo = $tipos_vacinacao[$index];
-                $html .= '<tr><td>' . $data . '</td><td>' . $tipo . '</td></tr>';
+                $vacina = $data . ' - ' . $tipo;
+
+                if (!in_array($vacina, $vacinas)) {
+                    $vacinas[] = $vacina;
+                    $html .= '<tr><td style="color: #fff; background-color: #343a40;">' . $data . '</td><td style="color: #fff; background-color: #343a40;">' . $tipo . '</td></tr>';
+                }
             }
 
             $html .= '</tbody>
                 </table>';
         } else {
-            // Se não houver dados de vacinação, exibe uma mensagem indicando isso
             $html .= '<h2 class="mt-4">Vacinação</h2>
-                <table class="table table-bordered mt-2">
-                    <tr><td colspan="2">Nenhuma vacinação registrada.</td></tr>
-                </table>';
+                <p style="color: #fff;">Não há registros de vacinação para este animal.</p>';
         }
 
-        // Verifica se há dados de manejo do animal
+        // Manutenção
+        $manutencoes = array();
+
         if (!empty($animal['data_manutencao']) && !empty($animal['tipo_manutencao'])) {
             $html .= '<h2 class="mt-4">Manejo</h2>
                 <table class="table table-bordered mt-2">
                     <thead>
                         <tr>
-                            <th>Data de Manutenção</th>
-                            <th>Tipo de Manutenção</th>
+                            <th style="color: #fff; background-color: #343a40;">Data</th>
+                            <th style="color: #fff; background-color: #343a40;">Tipo</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -157,34 +159,30 @@ if (isset($_GET['id_animal'])) {
             $datas_manutencao = explode(', ', $animal['data_manutencao']);
             $tipos_manutencao = explode(', ', $animal['tipo_manutencao']);
 
-            // Itera sobre as datas e tipos de manejo e cria as linhas da tabela
             foreach ($datas_manutencao as $index => $data) {
                 $tipo = $tipos_manutencao[$index];
-                $html .= '<tr><td>' . $data . '</td><td>' . $tipo . '</td></tr>';
+                $manutencao = $data . ' - ' . $tipo;
+
+                if (!in_array($manutencao, $manutencoes)) {
+                    $manutencoes[] = $manutencao;
+                    $html .= '<tr><td style="color: #fff; background-color: #343a40;">' . $data . '</td><td style="color: #fff; background-color: #343a40;">' . $tipo . '</td></tr>';
+                }
             }
 
             $html .= '</tbody>
                 </table>';
         } else {
-            // Se não houver dados de manejo, exibe uma mensagem indicando isso
             $html .= '<h2 class="mt-4">Manejo</h2>
-                <table class="table table-bordered mt-2">
-                    <tr><td colspan="2">Nenhum manejo registrado.</td></tr>
-                </table>';
+                <p style="color: #fff;">Não há registros de manutenção para este animal.</p>';
         }
 
-        // Escreve o conteúdo HTML no documento PDF
         $pdf->writeHTML($html, true, false, true, false, '');
 
-        // Saída do PDF para o navegador (abre em outra aba)
         $pdf->Output('relatorio_animal.pdf', 'I');
     } else {
-        // Se o animal não for encontrado, redireciona para a página principal
-        header('Location: index.php');
-        exit();
+        echo 'Animal não encontrado.';
     }
 } else {
-    // Se o parâmetro id_animal não for fornecido, redireciona para a página principal
-    header('Location: index.php');
-    exit();
+    echo 'ID do animal não fornecido.';
 }
+?>
