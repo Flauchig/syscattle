@@ -116,8 +116,8 @@ if (isset($_GET['id_animal'])) {
                 <table class="table table-bordered mt-2">
                     <thead>
                         <tr>
-                            <th style="color: #fff; background-color: #343a40;">Data</th>
-                            <th style="color: #fff; background-color: #343a40;">Tipo</th>
+                            <th style="color: #fff; background-color: #343a40;">Data Vacinação </th>
+                            <th style="color: #fff; background-color: #343a40;">Tipo Vacinação </th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -139,7 +139,7 @@ if (isset($_GET['id_animal'])) {
                 </table>';
         } else {
             $html .= '<h2 class="mt-4">Vacinação</h2>
-                <p style="color: #fff;">Não há registros de vacinação para este animal.</p>';
+                <p style="color: #fff ; background-color: #343a40;">Não há registros de vacinação para este animal.</p>';
         }
 
         // Manutenção
@@ -150,8 +150,8 @@ if (isset($_GET['id_animal'])) {
                 <table class="table table-bordered mt-2">
                     <thead>
                         <tr>
-                            <th style="color: #fff; background-color: #343a40;">Data</th>
-                            <th style="color: #fff; background-color: #343a40;">Tipo</th>
+                            <th style="color: #fff; background-color: #343a40;">Data Manutenção </th>
+                            <th style="color: #fff; background-color: #343a40;">Tipo Manutenção</th>
                         </tr>
                     </thead>
                     <tbody>';
@@ -173,7 +173,7 @@ if (isset($_GET['id_animal'])) {
                 </table>';
         } else {
             $html .= '<h2 class="mt-4">Manejo</h2>
-                <p style="color: #fff;">Não há registros de manutenção para este animal.</p>';
+                <p style="color: #fff; background-color: #343a40;">Não há registros de manutenção para este animal.</p>';
         }
 
         $pdf->writeHTML($html, true, false, true, false, '');
