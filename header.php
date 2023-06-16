@@ -1,5 +1,4 @@
 <?php
-require_once 'delete-session.php';
 require_once 'config.php';
 $cargo_login = $_SESSION['cargo'];
 
