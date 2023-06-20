@@ -95,11 +95,11 @@ $manejos = $sql_query->fetchAll(PDO::FETCH_ASSOC);
                     <div class="row mb-4 d-flex justify-content-between">
                         <input type="hidden" id="id_manejo" name="id_manejo">
                         <div class="col-sm-3">
-                            <label for="data_manutencao" class="form-label-lg">Data de Manutenção</label>
+                            <label for="data_manutencao" class="form-label-lg">Data de Manejo </label>
                             <input type="date" class="form-control border-dark" id="data_manutencao" name="data_manutencao" required>
                         </div>
                         <div class="col-sm-3">
-                            <label for="tipo_manutencao" class="form-label-lg">Tipo de Manutenção</label>
+                            <label for="tipo_manutencao" class="form-label-lg">Tipo de Manejo </label>
                             <input type="text" class="form-control border-dark" id="tipo_manutencao" name="tipo_manutencao" required>
                         </div>
                         <div class="col-sm-3">

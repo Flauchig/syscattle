@@ -150,8 +150,8 @@ if (isset($_GET['id_animal'])) {
                 <table class="table table-bordered mt-2">
                     <thead>
                         <tr>
-                            <th style="color: #fff; background-color: #343a40;">Data Manutenção </th>
-                            <th style="color: #fff; background-color: #343a40;">Tipo Manutenção</th>
+                            <th style="color: #fff; background-color: #343a40;">Data Manejo </th>
+                            <th style="color: #fff; background-color: #343a40;">Tipo Manejo</th>
                         </tr>
                     </thead>
                     <tbody>';
